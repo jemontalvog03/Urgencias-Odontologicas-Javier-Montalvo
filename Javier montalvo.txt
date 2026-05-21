@@ -1,0 +1,628 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dr. Javier Montalvo - Urgencias Odontológicas</title>
+
+<!-- AOS Animations -->
+
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+body {
+font-family: 'Open Sans', sans-serif;
+background: linear-gradient(135deg, #2d3436 0%, #1e272e 100%);
+color: #f4e4c1;
+margin: 0;
+padding: 0;
+text-align: center;
+}
+
+header {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background: white;  /* ← Ahora es blanco */
+padding: 25px;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+}
+
+header img {
+width: 200px;
+height: 200px;
+object-fit: cover;
+border-radius: 50%;
+border: 3px solid white;
+margin-bottom: 0;
+box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+background-color: transparent;
+padding: 0;
+object-position: center;
+}
+
+header h1 {
+font-family: 'Papyrus', fantasy, cursive;
+color: #1a1410;  /* ← Este era el color café oscuro original */
+font-size: 2.8rem;
+line-height: 1.3;
+margin: 0;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+main {
+padding: 30px 15px;
+}
+
+h2 {
+font-family: 'Century Gothic', sans-serif;
+color: white;
+font-size: 2rem;
+margin-bottom: 15px;
+text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+h3 {
+color: white;
+font-family: 'Century Gothic', sans-serif;
+font-size: 1.5rem;
+}
+
+p {
+font-size: 1rem;
+line-height: 1.6;
+margin: 10px auto;
+max-width: 900px;
+text-align: justify;
+color: #f4e4c1;
+}
+
+.servicios {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.servicios-buttons {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 15px;
+margin-bottom: 20px;
+}
+
+.servicios button {
+background: linear-gradient(135deg, #d4af37 0%, #f4c542 100%);
+border: 2px solid #8b6914;
+border-radius: 10px;
+padding: 15px 25px;
+font-size: 1.3rem;
+cursor: pointer;
+transition: 0.3s;
+width: 220px;
+color: #1a1410;
+font-weight: bold;
+box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+}
+
+.servicios button:hover {
+background: linear-gradient(135deg, #f4c542 0%, #ffd700 100%);
+transform: translateY(-3px);
+box-shadow: 0 6px 15px rgba(212, 175, 55, 0.5);
+}
+
+.servicio-texto {
+display: none;
+margin-top: 1rem;
+background: linear-gradient(135deg, #3d3020 0%, #2c2416 100%);
+padding: 25px;
+border-radius: 10px;
+box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+border: 2px solid #d4af37;
+text-align: center;
+animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+ul {
+text-align: left;
+max-width: 800px;
+margin: 10px auto;
+padding-left: 20px;
+color: #f4e4c1;
+}
+
+ul li {
+margin-bottom: 8px;
+}
+
+.whatsapp-float {
+position: fixed;
+width: 65px;
+height: 65px;
+bottom: 25px;
+right: 25px;
+background-color: #25d366;
+color: white;
+border-radius: 50%;
+text-align: center;
+font-size: 35px;
+box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+z-index: 100;
+transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+transform: scale(1.1);
+}
+
+.whatsapp-float img {
+width: 38px;
+margin-top: 13px;
+}
+
+.ubicacion iframe {
+width: 100%;
+height: 300px;
+border: 2px solid #d4af37;
+border-radius: 10px;
+margin-top: 10px;
+box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+footer {
+background: linear-gradient(135deg, #d4af37 0%, #f4c542 100%);
+padding: 15px;
+text-align: center;
+font-size: 0.9rem;
+color: #1a1410;
+margin-top: 2rem;
+box-shadow: 0 -4px 15px rgba(212, 175, 55, 0.3);
+font-weight: bold;
+}
+
+.whatsapp-btn {
+background: linear-gradient(135deg, #25d366 0%, #20c05c 100%);
+color: white;
+padding: 18px 40px;
+border-radius: 30px;
+text-decoration: none;
+font-weight: bold;
+display: inline-block;
+margin-top: 10px;
+transition: 0.3s;
+box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+font-size: 1.4rem;
+}
+
+.whatsapp-btn:hover {
+background: linear-gradient(135deg, #20c05c 0%, #1aa84e 100%);
+transform: translateY(-2px);
+box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
+}
+
+.metodos-pago {
+margin: 40px auto;
+padding: 30px 15px;
+max-width: 900px;
+}
+
+.payment-logos {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 30px;
+flex-wrap: wrap;
+margin: 25px auto;
+}
+
+.payment-logo {
+height: 60px;
+width: auto;
+object-fit: contain;
+background-color: white;
+padding: 15px 20px;
+border-radius: 12px;
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+transition: transform 0.3s ease;
+}
+
+.payment-logo:hover {
+transform: translateY(-5px);
+box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+.testimonios {
+margin: 40px auto;
+padding: 30px 15px;
+max-width: 1200px;
+background: white;
+border-radius: 15px;
+}
+
+.google-header {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.google-rating h3 {
+font-family: 'Arial', sans-serif;
+color: #333;
+font-size: 2rem;
+margin: 0;
+font-weight: bold;
+}
+
+.stars-big {
+font-size: 2rem;
+margin: 10px 0;
+}
+
+.resenas-count {
+color: #666;
+font-size: 1rem;
+margin: 10px 0;
+}
+
+.resenas-count strong {
+color: #333;
+}
+
+.google-logo {
+height: 30px;
+margin-top: 10px;
+}
+
+.testimonios-slider {
+position: relative;
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.testimonios-container-slider {
+display: flex;
+gap: 20px;
+overflow-x: auto;
+scroll-behavior: smooth;
+padding: 20px 10px;
+scrollbar-width: none;
+}
+
+.testimonios-container-slider::-webkit-scrollbar {
+display: none;
+}
+
+.testimonio-card-google {
+background: #f8f9fa;
+padding: 20px;
+border-radius: 12px;
+min-width: 280px;
+max-width: 320px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+border: 1px solid #e0e0e0;
+flex-shrink: 0;
+}
+
+.testimonio-header-google {
+display: flex;
+align-items: flex-start;
+gap: 12px;
+margin-bottom: 12px;
+position: relative;
+}
+
+.testimonio-avatar {
+width: 45px;
+height: 45px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+font-size: 1.3rem;
+font-weight: bold;
+flex-shrink: 0;
+}
+
+.testimonio-info-google {
+flex: 1;
+}
+
+.testimonio-info-google h4 {
+color: #333;
+margin: 0 0 5px 0;
+font-size: 0.95rem;
+text-align: left;
+font-weight: 600;
+border: 1px solid white;
+padding: 3px 8px;
+border-radius: 5px;
+display: inline-block;
+background: white;
+}
+
+.estrellas-google {
+color: #fbbc04;
+font-size: 0.85rem;
+display: flex;
+align-items: center;
+gap: 3px;
+}
+
+.google-icon-small {
+height: 16px;
+position: absolute;
+top: 0;
+right: 0;
+}
+
+.testimonio-texto-google {
+color: #333;
+font-size: 0.9rem;
+line-height: 1.5;
+text-align: left;
+margin: 0;
+}
+
+.slider-btn {
+background: #d4af37;
+color: white;
+border: none;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+font-size: 1.8rem;
+cursor: pointer;
+flex-shrink: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: 0.3s;
+box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.slider-btn:hover {
+background: #f4c542;
+transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+.servicios-buttons {
+flex-direction: column;
+align-items: center;
+}
+.slider-btn {
+display: none;
+}
+.testimonios-container-slider {
+padding: 20px 0;
+}
+}
+</style>
+
+</head>
+
+<body>
+<header data-aos="fade-down">
+<img src="https://i.imgur.com/5VbgdV4.jpeg" alt="Logo Javier Montalvo" />
+<h1>Dr. Javier Montalvo<br>Urgencias Odontológicas</h1>
+</header>
+
+<main>
+<section data-aos="fade-up" style="max-width: 800px; margin: 0 auto; text-align: center;">
+<h2>¿Tienes una urgencia odontológica en Bogotá? 🏙️</h2>
+<p style="text-align: center;">
+Escríbele directamente al Dr. Javier Montalvo y recibe atención inmediata.<br><br>
+<a href="https://wa.me/573102705005" target="_blank" class="whatsapp-btn">
+💬 Contáctanos por WhatsApp
+</a>
+</p>
+</section>
+
+<section class="servicios" data-aos="fade-up">
+<h2>Servicios</h2>
+<div class="servicios-buttons">
+<button onclick="mostrar('cirugia')">Cirugía Oral 💉</button>
+<button onclick="mostrar('rehabilitacion')">Rehabilitación 😁</button>
+<button onclick="mostrar('endodoncia')">Endodoncia 🦷</button>
+<button onclick="mostrar('periodoncia')">Periodoncia 🪥</button>
+<button onclick="mostrar('integral')">Odontología Integral ✨</button>
+</div>
+
+<div id="cirugia" class="servicio-texto">
+<h3>💉 Cirugía Oral Especializada y Urgencias</h3>
+<p>Nuestro equipo de especialistas está capacitado para realizar procedimientos de cirugía oral. Nuestro enfoque es brindarle tratamientos seguros, mínimamente invasivos y efectivos para restaurar la salud y funcionalidad de su boca. 🦷</p>
+<p><strong>Realizamos procedimientos clave como:</strong></p>
+<ul>
+<li><strong>🦴 Extracción de Muelas del Juicio (Terceros Molares):</strong> Eliminación segura de muelas impactadas o que causan dolor e infección.</li>
+<li><strong>🔩 Colocación de Implantes Dentales:</strong> Solución permanente para reemplazar dientes perdidos y recuperar su sonrisa.</li>
+<li><strong>⚙️ Cirugía Preprotésica:</strong> Preparación de la boca para un ajuste óptimo de prótesis dentales.</li>
+</ul>
+<h4 style="color: white; margin-top: 20px;">🚨 Atención de Urgencias Odontológicas</h4>
+<p>Sabemos que el dolor no espera. ⏰ Atendemos urgencias odontológicas (dolor agudo, fracturas, abscesos) que requieren una intervención quirúrgica inmediata para estabilizar al paciente.</p>
+<p>La atención de urgencia se proporciona dependiendo de la evaluación de cada caso para asegurar la respuesta más oportuna y eficaz. ✅</p>
+<p><strong>Si necesita una valoración o está experimentando una urgencia, contáctenos de inmediato. 📞</strong></p>
+</div>
+
+<div id="rehabilitacion" class="servicio-texto">
+<h3>😁 Rehabilitación Oral</h3>
+<p>Nuestro equipo de expertos en rehabilitación oral está enfocado en devolver la función completa, la estética y la salud a bocas que han sufrido desgaste, pérdida de dientes o daños severos. Nuestro objetivo es restaurar su sonrisa y capacidad de masticación con soluciones duraderas. ✨</p>
+<p><strong>Procedimientos clave de rehabilitación:</strong></p>
+<ul>
+<li><strong>👑 Prótesis Fijas (Coronas y Puentes):</strong> Diseñamos y colocamos restauraciones permanentes sobre dientes dañados o implantes, recuperando la forma, el color y la fuerza de su mordida.</li>
+<li><strong>🦷 Prótesis Removibles:</strong> Confeccionamos dentaduras parciales o completas, cómodas y bien ajustadas, para reemplazar múltiples dientes faltantes.</li>
+<li><strong>✨ Blanqueamiento Dental:</strong> Procedimiento estético, seguro y efectivo, enfocado en aclarar el color de sus dientes para lograr una sonrisa más luminosa.</li>
+</ul>
+</div>
+
+<div id="endodoncia" class="servicio-texto">
+<h3>🦷 Endodoncia</h3>
+<p>Ofrecemos tratamientos de endodoncia enfocados en salvar dientes que han sido afectados por caries profundas, fracturas o traumatismos severos, evitando así su pérdida. 💪</p>
+<p>La endodoncia se especializa en el diagnóstico y tratamiento de enfermedades de la pulpa dental (el nervio y vasos sanguíneos dentro del diente).</p>
+<p><strong>Nuestros tratamientos clave de endodoncia incluyen:</strong></p>
+<ul>
+<li><strong>🩺 Tratamiento de Conducto:</strong> Procedimiento para eliminar la pulpa infectada o inflamada del interior del diente. Esto alivia el dolor, elimina la infección y sella el conducto para preservar el diente a largo plazo.</li>
+<li><strong>🔄 Retratamiento Endodóntico:</strong> Si un tratamiento de conducto previo no sanó correctamente, realizamos un procedimiento para limpiar, reformar y sellar nuevamente los conductos, dándole una segunda oportunidad a su diente.</li>
+<li><strong>⚕️ Apiceptomía (Cirugía Endodóntica):</strong> Intervención quirúrgica menor para eliminar la punta de la raíz del diente y el tejido infectado circundante, cuando la infección persiste a pesar del tratamiento de conducto tradicional.</li>
+</ul>
+<p><strong>Si experimenta dolor intenso, sensibilidad prolongada o hinchazón, podría necesitar una endodoncia. Contáctenos para una evaluación inmediata. 🚨</strong></p>
+</div>
+
+<div id="periodoncia" class="servicio-texto">
+<h3>🪥 Periodoncia</h3>
+<p>Nos especializamos en periodoncia, una rama vital enfocada en el diagnóstico y tratamiento de las enfermedades que afectan las encías y el hueso que soporta los dientes (enfermedad periodontal o "piorrea"). El objetivo es mantener sus cimientos dentales fuertes y sanos para prevenir la pérdida de dientes. 🦴</p>
+<p><strong>Nuestros procedimientos clave de periodoncia incluyen:</strong></p>
+<ul>
+<li><strong>🩹 Diagnóstico y Tratamiento de Gingivitis y Periodontitis:</strong> Evaluamos la gravedad de la inflamación o infección de sus encías y diseñamos un plan de tratamiento personalizado para detener el avance de la enfermedad.</li>
+<li><strong>🔧 Raspado y Alisado Radicular (Limpieza Profunda):</strong> Un procedimiento no quirúrgico fundamental para eliminar el sarro y la placa bacteriana de las superficies radiculares, especialmente debajo de la línea de la encía.</li>
+<li><strong>⚕️ Cirugía Periodontal:</strong> Intervenciones quirúrgicas necesarias para regenerar hueso perdido, reducir las bolsas periodontales o realizar injertos de encía para cubrir recesiones gingivales y mejorar la estética.</li>
+<li><strong>💚 Mantenimiento Periodontal:</strong> Un programa de citas de seguimiento rigurosas y personalizadas esencial para controlar la enfermedad y asegurar que los resultados del tratamiento se mantengan a largo plazo.</li>
+</ul>
+<p><strong>Si experimenta sangrado de encías, mal aliento persistente o movilidad dental, contáctenos para una evaluación periodontal. 🚨</strong></p>
+</div>
+
+<div id="integral" class="servicio-texto">
+<h3>✨ Odontología Integral</h3>
+<p>Nuestro enfoque es la Odontología Integral. Esto significa que no solo tratamos problemas puntuales, sino que evaluamos y cuidamos la totalidad de su salud oral: desde la raíz del diente hasta la estética de su sonrisa. Nuestro objetivo es brindarle un plan de tratamiento completo y coordinado, evitando la necesidad de múltiples referencias. 🌟</p>
+<p><strong>La Odontología Integral combina las siguientes especialidades para su beneficio:</strong></p>
+<ul>
+<li><strong>🛡️ Salud Preventiva:</strong> Revisiones periódicas, limpiezas y selladores para evitar la aparición de enfermedades dentales y periodontales.</li>
+<li><strong>🔨 Restauración (Rehabilitación y Prótesis):</strong> Reemplazamos dientes faltantes o dañados utilizando prótesis fijas (coronas, puentes) o removibles, restaurando su función de masticación y la estética.</li>
+<li><strong>🦷 Endodoncia:</strong> Salvamos dientes de la extracción tratando infecciones internas del conducto radicular, eliminando el dolor y preservando su estructura dental natural.</li>
+<li><strong>🪥 Periodoncia:</strong> Cuidamos sus encías y el hueso de soporte, tratando enfermedades como la gingivitis y la periodontitis, que son esenciales para la longevidad de sus dientes.</li>
+<li><strong>💉 Cirugía Oral:</strong> Manejamos extracciones complejas (como las cordales) y colocación de implantes dentales, estableciendo los cimientos para una sonrisa duradera.</li>
+<li><strong>💎 Estética:</strong> Procedimientos como el Blanqueamiento Dental para mejorar la apariencia y el brillo de su sonrisa de forma segura y efectiva.</li>
+</ul>
+<p><strong>Recibirá una atención unificada que garantiza la máxima calidad en cada etapa de su tratamiento. ¡Su salud oral integral es nuestra prioridad! 🌟</strong></p>
+</div>
+</section>
+
+<section class="ubicacion" data-aos="fade-up">
+<h2>📍 Nuestra ubicación</h2>
+<p style="text-align: center; font-family: 'Century Gothic', sans-serif; font-size: 1.3rem; font-weight: bold; color: white; margin: 20px auto;">Calle 50 #8-27, Bogotá - Colombia 🇨🇴</p>
+<iframe src="https://www.google.com/maps?q=Calle+50+%238-27,+Bogotá,+Colombia&output=embed"></iframe>
+</section>
+
+<section class="metodos-pago" data-aos="fade-up">
+<h2>💳 Métodos de Pago</h2>
+<p style="text-align: center; font-family: 'Open Sans', sans-serif; font-size: 1.1rem; color: #f4e4c1; margin: 20px auto; max-width: 700px;">
+Facilitamos tu experiencia ofreciéndote múltiples opciones de pago. Tu comodidad y tranquilidad son nuestra prioridad. ✨
+</p>
+<div class="payment-logos">
+<img src="https://i.imgur.com/rkTqBg7.png" alt="Bancolombia" class="payment-logo">
+<img src="https://i.imgur.com/sSSgZVx.jpeg" alt="Nequi" class="payment-logo">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Tarjetas" class="payment-logo">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="payment-logo">
+</div>
+<p style="text-align: center; font-size: 0.95rem; color: white; margin-top: 15px;">
+💰 Aceptamos transferencias, pagos móviles y tarjetas de crédito/débito
+</p>
+</section>
+
+<section class="testimonios" data-aos="fade-up">
+<div class="google-header">
+<div class="google-rating">
+<h3>EXCELENTE</h3>
+<div class="stars-big">⭐⭐⭐⭐⭐</div>
+<p class="resenas-count">A base de <strong>78 reseñas</strong></p>
+<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" class="google-logo">
+</div>
+</div>
+<div class="testimonios-slider">
+<button class="slider-btn prev" onclick="scrollTestimonios(-1)">‹</button>
+<div class="testimonios-container-slider">
+<div class="testimonio-card-google">
+<div class="testimonio-header-google">
+<div class="testimonio-avatar" style="background-color: #34A853;">C</div>
+<div class="testimonio-info-google">
+<h4>Carlos Mejía</h4>
+<div class="estrellas-google">⭐⭐⭐⭐⭐ ✓</div>
+</div>
+<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" class="google-icon-small">
+</div>
+<p class="testimonio-texto-google">
+Excelente atención buen servicio médico completamente profesional
+</p>
+</div>
+
+<div class="testimonio-card-google">
+<div class="testimonio-header-google">
+<div class="testimonio-avatar" style="background-color: #5B6EAE;">D</div>
+<div class="testimonio-info-google">
+<h4>Dolly Santos</h4>
+<div class="estrellas-google">⭐⭐⭐⭐⭐ ✓</div>
+</div>
+<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" class="google-icon-small">
+</div>
+<p class="testimonio-texto-google">
+Excelente servicio ,muy profesionales en su área ,me encantó ,super recomendados
+</p>
+</div>
+
+<div class="testimonio-card-google">
+<div class="testimonio-header-google">
+<div class="testimonio-avatar" style="background-color: #00ACC1;">J</div>
+<div class="testimonio-info-google">
+<h4>Juan Carlos Gama...</h4>
+<div class="estrellas-google">⭐⭐⭐⭐⭐ ✓</div>
+</div>
+<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" class="google-icon-small">
+</div>
+<p class="testimonio-texto-google">
+Excelente atención y servicio. 100% Calidad de servicio y súper buena atención profesional
+</p>
+</div>
+
+<div class="testimonio-card-google">
+<div class="testimonio-header-google">
+<div class="testimonio-avatar" style="background-color: #E91E63;">M</div>
+<div class="testimonio-info-google">
+<h4>María Rodríguez</h4>
+<div class="estrellas-google">⭐⭐⭐⭐⭐ ✓</div>
+</div>
+<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" class="google-icon-small">
+</div>
+<p class="testimonio-texto-google">
+Me atendieron de emergencia y quedé muy agradecida. Excelente profesional
+</p>
+</div>
+</div>
+<button class="slider-btn next" onclick="scrollTestimonios(1)">›</button>
+</div>
+</section>
+</main>
+
+<footer data-aos="fade-up">
+<p>© 2025 Dr. Javier Montalvo | Urgencias Odontológicas Bogotá</p>
+</footer>
+
+<a href="https://wa.me/573102705005" class="whatsapp-float" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+AOS.init({ duration: 1000 });
+function mostrar(id) {
+document.querySelectorAll('.servicio-texto').forEach(div => div.style.display = 'none');
+document.getElementById(id).style.display = 'block';
+}
+
+function scrollTestimonios(direction) {
+const container = document.querySelector('.testimonios-container-slider');
+const scrollAmount = 320;
+container.scrollBy({
+left: direction * scrollAmount,
+behavior: 'smooth'
+});
+}
+</script>
+
+</body>
+</html>
